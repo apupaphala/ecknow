@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload form</title>
+    <link rel="stylesheet" href="css/ecknowtest.css" />
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+
+
+
+</head>
+
+<body>
+    <!-- header -->
+    <div id="header" class="header" style="position:inherit;z-index: 999;"></div>
+     <!-- header end-->
+
+     <!-- content -->
+    <main class="main_full">
+        <div class="container containerFullHeight">
+            <!-- upload panel -->
+            <div class="panel">
+                <div class="button_outer backArea">
+                    <div class="btn_back">
+                        Back
+                    </div>
+                </div>
+
+                <div class="button_outer uploadArea">
+                    <div class="btn_upload">
+                        <input type="file" id="upload_file" name="" multiple>
+                        Upload
+                    </div>
+                    <div class="processing_bar"></div>
+                    <div class="success_box"></div>
+                </div>
+                <div class="uploaded_file_view" id="uploaded_view">
+                </div>
+            </div>
+            <!-- upload panel end -->
+
+            <!-- show image -->
+            <div class="showImg_view" id="showImg_view"></div>
+            <!-- show image end -->
+
+            <!-- image position tag -->
+            <div class="click_position_tags" id="click_position_tags">
+                <div class="messageArea">
+                    <div class="click_position_tags_message" id="click_position_tags_message">
+                        <p>Please point image to provide information</p>
+                        <div id="tagData" value="0"></div>
+                    </div>
+                    <div class="button_outer nextArea">
+                        <a href="./formOne.html">
+                            <div class="btn_next">
+                                Next
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <!-- image position tag end -->
+
+        </div>
+    </main>
+<!-- content end-->
+
+
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script>
+              $("#header").load("./header/header.html")
+    </script>
+    <script src='js/ecknowtest.js'></script>
+</body>
+
+
+
+</html>

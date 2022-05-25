@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form One</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/global-form.css" />
+</head>
+
+<body>
+    <!-- header -->
+    <div id="header" class="header" style="position:inherit;z-index: 999;"></div>
+    <!-- header end -->
+
+    <!-- content -->
+    <div class="row">
+        <div class="form-group col-md-12">
+            <h4 class="formTitle">General Information Applicant</h4><br>
+        </div>
+        <div class="form-group col-md-6">
+            <label for="company_name">Company Name</label>
+            <input type="text" name="company_name" id="company_name" class="form-control" placeholder="Company Name">
+        </div>
+        <div class="form-group col-md-6">
+            <label for="dept">Dept</label>
+            <input type="text" name="dept" id="dept" class="form-control" placeholder="Dept">
+        </div>
+        <div class="form-group col-md-6">
+            <label for="fax">Fax</label>
+            <input type="text" name="fax" id="fax" class="form-control" placeholder="Fax">
+        </div>
+        <div class="form-group col-md-12">
+            <label for="address">Address</label>
+            <textarea type="text" name="address" id="address" class="form-control" placeholder="Address"
+                autocomplete="off"></textarea>
+        </div>
+        <div class="form-group col-md-6">
+            <label for="contact_person">Contact Person</label>
+            <input type="text" name="contact_person" id="contact_person" class="form-control"
+                placeholder="Contact Person">
+        </div>
+
+        <div class="form-group col-md-2">
+            <label for="tel_code">Tel Zip Code</label>
+            <select class="form-control" id="tel_code" name="tel_code">
+                <option selected>Please Choose</option>
+                <option value="0">+852</option>
+                <option value="1">+886</option>
+                <option value="2">+86</option>
+            </select>
+        </div>
+        <div class="form-group col-md-4">
+            <label for="tel">Tel</label>
+            <input type="tel" name="tel" id="tel" class="form-control" placeholder="Tel">
+        </div>
+        <div class="form-group col-md-6">
+            <label for="email">Email</label>
+            <input type="text" name="email" id="email" class="form-control" placeholder="Email">
+        </div>
+
+        <div class="form-group col-md-6">
+            <label for="billing_currency">Billing Currency</label>
+            <select class="form-control" id="billing_currency" name="billing_currency">
+                <option selected>Please Choose</option>
+                <option value="0">HKD</option>
+                <option value="1">CNY</option>
+                <option value="2">TWD</option>
+            </select>
+        </div>
+        <div class="form-group col-md-6">
+            <label for="return">Need Sample Return?</label>
+            <select class="form-control" id="return" name="return">
+                <option selected>Please Choose</option>
+                <option value="0">Yes</option>
+                <option value="1">No</option>
+            </select>
+        </div>
+        <div class="form-group col-md-6">
+            <label for="return">Need ReportComment?</label>
+            <select class="form-control" id="return" name="return">
+                <option selected>Please Choose</option>
+                <option value="0">Yes</option>
+                <option value="1">No</option>
+            </select>
+        </div>
+
+        <div class="form-group col-md-6">
+            <label for="billing_to">Billing To</label>
+            <div class="form-group col-md-">
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox" id="inlineCheckbox19">
+                    <label class="form-check-label" for="inlineCheckbox19">Applicant</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox" id="inlineCheckbox20">
+                    <label class="form-check-label" for="inlineCheckbox20">Agent</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox" id="inlineCheckbox21">
+                    <label class="form-check-label" for="inlineCheckbox21">Buy</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group col-md-6">
+            <label for="electronic_report_to">Electronic Report To</label>
+
+            <div class="form-group col-md-">
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox" id="inlineCheckbox19">
+                    <label class="form-check-label" for="inlineCheckbox19">Applicant</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox" id="inlineCheckbox20">
+                    <label class="form-check-label" for="inlineCheckbox20">Agent</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox" id="inlineCheckbox21">
+                    <label class="form-check-label" for="inlineCheckbox21">Buy</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group col-md-6">
+            <label for="hardCopy">Need HardCopy Report?</label>
+            <select class="form-control" id="hardCopy" name="hardCopy">
+                <option selected>Please Choose</option>
+                <option value="0">Own Pick-up</option>
+            </select>
+        </div>
+
+        <div class="form-group col-md-12">
+            <h4 class="formTitle">Invoice To</h4>
+        </div>
+        <div class="form-group col-md-6">
+            <label for="invoice_company_name">Company Name</label>
+            <input type="text" name="invoice_company_name" id="invoice_company_name" class="form-control"
+                placeholder="Company Name">
+        </div>
+        <div class="form-group col-md-6">
+            <label for="invoice_dept">Dept</label>
+            <input type="text" name="invoice_dept" id="invoice_dept" class="form-control" placeholder="Dept">
+        </div>
+        <div class="form-group col-md-6">
+            <label for="invoice_fax">Fax</label>
+            <input type="text" name="invoice_fax" id="invoice_fax" class="form-control" placeholder="Fax">
+        </div>
+        <div class="form-group col-md-12">
+            <label for="invoice_address">Address</label>
+            <textarea type="text" name="invoice_address" id="invoice_address" class="form-control" placeholder="Address"
+                autocomplete="off"></textarea>
+        </div>
+        <div class="form-group col-md-6">
+            <label for="invoice_contact_person">Contact Person</label>
+            <input type="text" name="invoice_contact_person" id="invoice_contact_person" class="form-control"
+                placeholder="Contact Person">
+        </div>
+
+        <div class="form-group col-md-2">
+            <label for="invoice_tel_code">Tel Zip Code</label>
+            <select class="form-control" id="invoice_tel_code" name="invoice_tel_code">
+                <option selected>Please Choose</option>
+                <option value="0">+852</option>
+                <option value="1">+886</option>
+                <option value="2">+86</option>
+            </select>
+        </div>
+        <div class="form-group col-md-4">
+            <label for="invoice_tel">Tel</label>
+            <input type="tel" name="invoice_tel" id="invoice_tel" class="form-control" placeholder="Tel">
+        </div>
+        <div class="form-group col-md-6">
+            <label for="invoice_email">Email</label>
+            <input type="text" name="invoice_email" id="invoice_email" class="form-control" placeholder="Email">
+        </div>
+        <div class="form-group col-md-12">
+            <h4 class="formTitle">Electronic Report To</h4>
+        </div>
+        <div class="form-group col-md-6">
+            <label for="electronic_company_name">Company Name</label>
+            <input type="text" name="electronic_company_name" id="electronic_company_name" class="form-control"
+                placeholder="Company Name">
+        </div>
+        <div class="form-group col-md-6">
+            <label for="electronic_contact_person">Contact Person</label>
+            <input type="text" name="electronic_contact_person" id="electronic_contact_person" class="form-control"
+                placeholder="Contact Person">
+        </div>
+        <div class="form-group col-md-2">
+            <label for="electronic_tel_code">Tel Zip Code</label>
+            <select class="form-control" id="electronic_tel_code" name="electronic_tel_code">
+                <option selected>Please Choose</option>
+                <option value="0">+852</option>
+                <option value="1">+886</option>
+                <option value="2">+86</option>
+            </select>
+        </div>
+        <div class="form-group col-md-4">
+            <label for="electronic_tel">Tel</label>
+            <input type="tel" name="electronic_tel" id="electronic_tel" class="form-control" placeholder="Tel">
+        </div>
+        <div class="form-group col-md-6">
+            <label for="electronic_fax">Fax</label>
+            <input type="text" name="electronic_fax" id="electronic_fax" class="form-control" placeholder="Fax">
+        </div>
+        <div class="form-group col-md-6">
+            <label for="electronic_email">Email</label>
+            <input type="text" name="electronic_email" id="electronic_email" class="form-control" placeholder="Email">
+        </div>
+        <div class="form-group col-md-12">
+            <label for="electronic_address">Address</label>
+            <textarea type="text" name="electronic_address" id="electronic_address" class="form-control"
+                placeholder="Address" autocomplete="off"></textarea>
+        </div>
+        <div class="form-group col-md-12">
+            <h4 class="formTitle">HardCopy Report To</h4>
+        </div>
+        <div class="form-group col-md-6">
+            <label for="hardcopy_company_name">Company Name</label>
+            <input type="text" name="hardcopy_company_name" id="hardcopy_company_name" class="form-control"
+                placeholder="Company Name">
+        </div>
+        <div class="form-group col-md-6">
+            <label for="hardcopy_contact_person">Contact Person</label>
+            <input type="text" name="hardcopy_contact_person" id="hardcopy_contact_person" class="form-control"
+                placeholder="Contact Person">
+        </div>
+        <div class="form-group col-md-6">
+            <label for="hardcopy_email">Email</label>
+            <input type="text" name="hardcopy_email" id="hardcopy_email" class="form-control" placeholder="Email">
+        </div>
+        <div class="form-group col-md-12">
+            <label for="hardcopy_address">Address</label>
+            <textarea type="text" name="hardcopy_address" id="hardcopy_address" class="form-control"
+                placeholder="Address" autocomplete="off"></textarea>
+        </div>
+
+        <!-- footer -->
+        <footer class="form-group col-md-12 footerBtn">
+            <a href="./formTwo.html"><input class="btn btn-primary" type="button" value="Next"></a>
+        </footer>
+        <!-- footer end -->
+    </div>
+    <!-- content end-->
+</body>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+<script>
+    $("#header").load("./header/header.html")
+</script>
+
+</html>

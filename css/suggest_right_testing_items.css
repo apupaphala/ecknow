@@ -1,0 +1,52 @@
+.photoArea {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.photoArea img {
+    width: 50%;
+    min-width: 250px;
+    max-width: 600px;
+}
+
+.itemInformation {
+    display: flex;
+    align-items: baseline;
+    padding: 0 20px;
+}
+
+.extraItemInformation {
+    padding: 0 20px;
+}
+
+.itemInformation p {
+    margin: 10px;
+}
+
+.informationTitle {
+    font-size: 18px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+}
+
+.extraItemInformationArea{
+    margin-left: 15px;
+    margin-bottom: 20px;
+}
+
+.form-check{
+    margin-left: 20px;
+    align-items: baseline;
+}
+
+@media (max-width: 992px) {
+    .itemInformation {
+        display: grid;
+    }
+
+    .itemInformation p {
+        margin-left: 0px;
+    }
+}

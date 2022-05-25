@@ -1,0 +1,212 @@
+.multiple-select {
+  display: block;
+  position: relative;
+  max-width: 400px;
+  width: 100%;
+}
+
+.multiple-select button {
+  background: none;
+  border: 1px solid gray;
+  border-radius: 5px;
+  color: inherit;
+  display: block;
+  padding: 10px 30px 10px 10px;
+  font: inherit;
+  cursor: pointer;
+  outline: inherit;
+  text-align: left;
+  width: 100%;
+}
+
+.multiple-select button:focus {
+  border: 1px solid blue;
+}
+
+.multiple-select button::after {
+  content: "";
+  width: 0;
+  height: 0;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+
+  border-top: 10px solid #000;
+  position: absolute;
+  right: 15px;
+  top: 15px;
+}
+
+.multiple-select.active button::after {
+  content: "";
+  width: 0;
+  height: 0;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-top: 0;
+  border-bottom: 10px solid black;
+  position: absolute;
+  right: 15px;
+  top: 15px;
+}
+
+.multiple-select ul {
+  background: #fff;
+  border-radius: 5px;
+  box-sizing: border-box;
+  display: none;
+  border: 1px solid gray;
+  left: 0;
+  list-style: none;
+  padding: 10px;
+  position: absolute;
+  margin: 0;
+  margin-top: 2px;
+  width: 100%;
+}
+
+.multiple-select.active ul {
+  display: block;
+}
+
+.multiple-select ul li {
+  margin-bottom: 10px;
+}
+
+.multiple-select ul li:last-child {
+  margin-bottom: 0;
+}
+
+.multiple-select ul li,
+.multiple-select ul li input,
+.multiple-select ul li label {
+  cursor: pointer;
+}
+
+.multiple-select {
+  cursor: pointer;
+}
+
+.multiple-select input[type="checkbox"] {
+  position: absolute;
+  left: -9999px;
+  visibility: hidden;
+}
+
+.multiple-select label {
+  padding-left: 25px;
+  position: relative;
+}
+
+.multiple-select input[type="checkbox"]+label::before {
+  border-radius: 3px;
+  border: 1px solid gray;
+  box-sizing: border-box;
+  content: '';
+  position: absolute;
+  left: 0;
+  height: 14px;
+  top: 2px;
+  width: 14px;
+}
+
+.multiple-select input[type="checkbox"]:checked+label::before {
+  background: gray;
+}
+
+.informationArea{
+  display: flex;
+}
+
+.information{
+  width: 100%;
+}
+
+.photoArea{
+  width: 40%;
+}
+
+.photoArea img{
+  width: 100%;
+  min-width: 250px;
+}
+
+.country{
+  text-align: center;
+}
+
+.selectCountry{
+ display: flex;
+ justify-content: center;
+ margin: 20px 0;
+}
+
+
+.form-content-box .form-action-box {
+  display: flex;
+  align-items: center;
+  width: 50%;
+  padding: 5px 10px;
+  color:#6582C2;
+  font-weight: bold;
+}
+
+.form-content-box .form-content-row {
+  display: flex;
+}
+
+.text-input-box .item {
+  width: 100%;
+  font-weight: bold;
+}
+
+.form-content-box-area {
+  padding: 5px 10px;
+}
+
+.form-content-box label {
+  margin: 0px;
+  font-size: 18px;
+}
+
+.form-content-box .form-content-row {
+  display: flex;
+}
+
+.form-content-box .form-label-box {
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  width: 50%;
+  padding: 5px 10px;
+}
+
+.form-content-box .form-label-box .text {
+  font-weight: unset;
+  color: #656464;
+}
+.item p {
+  margin-top: revert;
+  font-family: bold;
+}
+
+h2 {
+  margin: 0px;
+}
+
+
+h2 {
+  font-size: 18px;
+  margin: 0px;
+}
+body{
+  background-color: #f6f6f6;
+}
+
+@media (max-width: 992px) {
+  .informationArea{
+    display: unset;
+  }
+  .photoArea{
+    width: 100%;
+  }
+}

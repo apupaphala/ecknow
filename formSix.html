@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Six</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <link rel="stylesheet" href="css/global-form.css" />
+</head>
+
+<body>
+    <!-- header -->
+    <div id="header" class="header" style="position:inherit;z-index: 999;"></div>
+     <!-- header end-->
+
+       <!-- content -->
+    <div class="row">
+        <div class="form-group col-md-12">
+            <h4 class="formTitle">Test Request Chemical Test</h4>
+        </div>
+
+        <div class="form-group col-md-6">
+            <label for="azo_dye">Azo dye</label>
+            <select class="form-control" id="azo_dye" name="azo_dye">
+                <option selected>Please Choose</option>
+                <option value="0">Combine</option>
+            </select>
+        </div>
+
+        <div class="form-group col-md-12">
+            <input class="checkbox" data-name="Species Identification" type="checkbox">
+            <input class="checkbox" data-name="Combine" type="checkbox">
+            <input class="checkbox" data-name="Separate" type="checkbox">
+            <input class="checkbox" data-name="Disperse dyes" type="checkbox">
+            <input class="checkbox" data-name="Formaldehyde" type="checkbox">
+            <input class="checkbox" data-name="Nickel Spot" type="checkbox">
+            <input class="checkbox" data-name="Nickel Release" type="checkbox">
+            <input class="checkbox" data-name="pH" type="checkbox">
+            <input class="checkbox" data-name="Total Cadmium" type="checkbox">
+            <input class="checkbox" data-name="phthalates" type="checkbox">
+            <input class="checkbox" data-name="Lead Content In Surface Coating" type="checkbox">
+            <input class="checkbox" data-name="Total Lead In Substrate" type="checkbox">
+            <input class="checkbox" data-name="Organotin" type="checkbox">
+            <input class="checkbox" data-name="Heavy Metal" type="checkbox">
+            <input class="checkbox" data-name="Nonylphenol" type="checkbox">
+            <input class="checkbox" data-name="Allergeric Dyes" type="checkbox">
+            <input class="checkbox" data-name="PCP/TeCP/OPP" type="checkbox">
+            <input class="checkbox" data-name="Carcinagenic Dyes" type="checkbox">
+            <input class="checkbox" data-name="BHT" type="checkbox">
+            <input class="checkbox" data-name="PAHS" type="checkbox">
+            <input class="checkbox" data-name="DMF" type="checkbox">
+            <input class="checkbox" data-name="PFOS/PFOA" type="checkbox">
+            <input class="checkbox" data-name="Allergenic Dye" type="checkbox">
+        </div>
+        <div class="form-group col-md-6">
+            <label for="other">Other</label>
+            <input type="text" name="other" id="other" class="form-control" placeholder="Other">
+        </div>
+
+        <!-- footer -->
+        <footer class="form-group col-md-12 footerBtn">
+            <a href="./formSeven.html"><input class="btn btn-primary" type="button" value="Next"></a>
+        </footer>
+         <!-- footer end -->
+    </div>
+     <!-- content end-->
+</body>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+<script>
+    $("#header").load("./header/header.html")
+</script>
+
+</html>

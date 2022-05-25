@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/global-form.css" />
+    <link rel="stylesheet" href="css/suggest_right_testing_items.css" />
+
+    <title>Photo Information</title>
+</head>
+
+<body>
+    <!-- header -->
+    <div id="header" class="header" style="position:inherit;z-index: 999;"></div>
+    <!-- header end -->
+
+    <!-- content -->
+    <div class="rowArea">
+        <div class="informationArea">
+            <!-- photo Area -->
+            <div class="photoArea">
+                <img src="./img/face.jpg">
+            </div>
+             <!-- photo area end-->
+
+            <!-- photo information -->
+            <div class="itemInformation">
+                <div class="informationTitle">Product Type:</div>
+                <p>Woven Jacket with Print, Zipper</p>
+            </div>
+
+            <div class="itemInformation">
+                <div class="informationTitle">Selling Country: </div>
+                <p>Australia</p>
+            </div>
+
+            <div class="itemInformation">
+                <div class="informationTitle">Compliance Tests: </div>
+            </div>
+            <div class="extraItemInformationArea">
+                <div class="extraItemInformation">
+                    <div class="extraItemInformationTitle">California Prop 65</div>
+                    <input class="checkbox" data-name="Flammability 16CFR1610" type="checkbox">
+                </div>
+                <div class="extraItemInformation">
+                    <div class="extraItemInformationTitle">Special Care Requirement</div>
+                    <input class="checkbox" data-name="AATCC 79" type="checkbox">
+                </div>
+                <div class="extraItemInformation">
+                    <div class="extraItemInformationTitle">Analytical Test</div>
+                    <input class="checkbox" data-name="Lead in Substrate" type="checkbox">
+                </div>
+                <div class="extraItemInformation">
+                    <div class="extraItemInformationTitle">Performance Test</div>
+                    <input class="checkbox" data-name="Tensile Test" type="checkbox">
+                </div>
+                <div class="extraItemInformation">
+                    <div class="extraItemInformationTitle">Colorfastness Test</div>
+                    <input class="checkbox" data-name="Colorfastness" type="checkbox">
+                </div>
+            </div>
+             <!-- photo information end -->
+
+              <!-- check box message -->
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" id="checkBoxMessage">
+                <label class="form-check-label" for="checkBoxMessage">Do you need to sumbit sample for laboratory
+                    testing?<br>(Auto application form filling function)</label>
+            </div>
+             <!-- check box message end-->
+        </div>
+
+        <!-- footer -->
+        <footer class="form-group col-md-12 footerBtn">
+            <a href="./formOne.html"><input class="btn btn-primary" type="button" value="Next"></a>
+        </footer>
+        <!-- footer end -->
+    </div>
+      <!-- content end-->
+
+    <script src='js/photo_information.js'></script>
+</body>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+<script>
+    $("#header").load("./header/header.html")
+</script>
+
+</html>
