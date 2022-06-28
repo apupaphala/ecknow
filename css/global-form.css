@@ -18,14 +18,14 @@ label {
 
 .btn-primary {
     color: #fff;
-    background-color: #6582C2;
-    border-color: #6582C2;
+    background-color: skyblue;
+
 }
 
 .btn-primary:hover {
     color: #fff;
-    background-color: #2D64A0;
-    border-color: #2D64A0;
+    background-color: skyblue;
+    border-color: skyblue;
 }
 
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap");
@@ -51,7 +51,7 @@ label {
     left: 50%;
     transform: translate(-50%, -50%);
     font-size: 16px;
-    font-family: "Inter", sans-serif;
+    font-family: 'Merriweather Sans', sans-serif;
     color: #3f3f3f;
     z-index: 99;
     transition: all 0.2s cubic-bezier(0.68, -0.55, 0.27, 1.55);

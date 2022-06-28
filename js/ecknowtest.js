@@ -1,8 +1,12 @@
 //first enter web site
 $(document).ready(function () {
     jsResize()
+    
 })
 
+
+
+let scanned = false;
 //upload photo function
 var btnUpload = $("#upload_file"),
     btnOuter = $(".uploadArea");
@@ -19,33 +23,69 @@ btnUpload.on("change", function (e) {
             var files = e.target.files; //FileList object
             var output = document.getElementById("uploaded_view");
 
-            for (var i = 0; i < files.length; i++) {
-                var file = files[i];
+            
+                var file = files[1];
+
                 //Only pics
-                if (!file.type.match('image'))
-                    continue;
-                var picReader = new FileReader();
-                picReader.addEventListener("load", function (event) {
+                if (!file.type.match('image')){
+                    alert("Your file is not uploaded due to wrong format.")
+                
+                }
+                    
+                    var picReader = new FileReader();
+                    picReader.addEventListener("load", function (event) {
                     var picFile = event.target;
                     var zoomLength = $('.zoom').length + 1
+
                     var div = document.createElement("div");
                     $("#uploaded_view").append('<div class="zoom" id="zoom_' + zoomLength + '" onclick="showImg(' + zoomLength + ')"><div class="imageSet"><img src="' + picFile.result + '"/><span class="file_remove" id="file_remove_' + zoomLength + '" onclick="file_remove(' + zoomLength + ')"><i class="fa-solid fa-xmark"></i></span></div></div>').addClass("show");
-                    // $("#uploaded_view").append('<div class="zoom" id="zoom_' + zoomLength + '" onclick="showImg(' + zoomLength + ')"><div class="imageSet"><span class="file_remove" id="file_remove_' + zoomLength + '" onclick="file_remove(' + zoomLength + ')"><i class="fa-solid fa-xmark"></i></span></div><img src="' + picFile.result + '"/></div>').addClass("show");
+                    var yyy = document.getElementById("uploaded_view").innerHTML;
+                    console.log(yyy);
+        
+
+
+                    $('#zoom_1').click(function(){
+                        if (!scanned){
+                         $("#showImg_view").append('<div class="ocrloader" id="ocrloaderDiv"><p>Scanning</p><em></em><span></span></div>').class("show");
+                         scanned = true;
+                        }
+                        alert(scanned)
+                    });
+
+                    
+                    $('#ocrloaderDiv').ready(function(){
+                        setTimeout(()=>{
+                            $(".ocrloader").remove();
+
+                        },2000);
+                        setTimeout(()=>{
+
+                            $("#exampleModalCenter").modal('show');
+                        },2000);
+                    });
+
+
+
+                
                 });
                 //Read the image
                 picReader.readAsDataURL(file);
-            }
+            
         }, 1500);//load on server
         jsResize()
     }
 });
 
+let position = 0;
 //after click photo, display photo on canvas
 function showImg(zoomLength) {
+    
+    $("#backImage").remove();
     $('.mainImg').hide()
     var img = $('#zoom_' + zoomLength + ' img').attr('src');
     $('.tagArea').hide()
     $('.tagArea_' + zoomLength).show()
+
 
     var imgDiv = $('#img_' + zoomLength).attr('src')
     var myImg = document.querySelector('#zoom_' + zoomLength + ' img');
@@ -56,11 +96,17 @@ function showImg(zoomLength) {
     if (imgDiv) {
         // second click
         $('#mainImg_' + zoomLength).show()
+
     } else {
         //first click
-        $("#showImg_view").append('<div class="mainImg" id="mainImg_' + zoomLength + '" value="0"><div class="removeImgBtn" id="removeImgBtn_' + zoomLength + '" onclick="removeImg(' + zoomLength + ')"><div class="iconArea"><i class="fa-solid fa-trash-can"></i></div></div><canvas class="image" id="img_' + zoomLength + '" src="' + img + '"></canvas></div>').addClass("show");
+        $("#showImg_view").append('<div class="mainImg" id="mainImg_' + zoomLength + '" value="0"><div class="removeImgBtn" id="removeImgBtn_' + zoomLength + '" onclick="removeImg(' + zoomLength + ')"><div class="iconArea"><i class="fa-solid fa-trash-can"></i></div></div><canvas data-dismiss="modal" data-toggle="modal" data-target="#exampleModalCenter5" data-backdrop="false" class="image" id="img_' + zoomLength + '" src="' + img + '"></canvas><p>Scanning</p><em><</div>').addClass("show");
     }
 
+                      
+ 
+
+
+   
     var canvas = document.getElementById('img_' + zoomLength);
     var context = canvas.getContext("2d");
 
@@ -93,6 +139,15 @@ function showImg(zoomLength) {
         var marker = new Marker();
         marker.XPos = Math.round(mouseXPos - (marker.Width / 2));
         marker.YPos = Math.round(mouseYPos - marker.Height);
+        var markerY = marker.YPos - 225 + "px";
+        var markerX = marker.XPos - 360 + "px";
+        
+        
+        
+
+        $("#exampleModalCenter5").css("margin-top",markerY);
+        $("#exampleModalCenter5").css("margin-left",markerX);
+        
 
         Markers.push(marker);
 
@@ -117,11 +172,9 @@ function showImg(zoomLength) {
         }
 
         // add check point input
-        if (check == 0) {
-            $('#tagData').append('<div class="tagArea ' + 'tagArea_' + zoomLength + '" value="0"><div id="tagArea_' + tagInputLength + '"><input type="hidden" id="pointX_' + tagInputLength + '" value="' + marker.XPos + '"></input><input type="hidden" class="pointY" id="pointY_' + tagInputLength + '" value="' + marker.YPos + '"></input><div id="tag_' + tagInputLength + '">' + 'X: ' + marker.XPos + ' Y: ' + marker.YPos + '</div><input type="text" name="tag_input" class="form-control tag_input" class="tag_input" id="tag_input_' + tagInputLength + '" placeholder=""></div>');
-        }
+        position = position + 1;
 
-        $('#click_position_tags_message p').html("")
+
     }
     // Add mouse click event listener to canvas
     canvas.addEventListener("mousedown", mouseClicked, false);
@@ -147,14 +200,19 @@ function showImg(zoomLength) {
         // You can leave the image height and width off, if you do it will draw the image at default size
         context.drawImage(mapSprite, 0, 0, realWidth, realHeight);
 
-        // Draw markers
+        // Draw markers 
+        
         for (var i = 0; i < Markers.length; i++) {
+            
             var tempMarker = Markers[i];
             // Draw marker
             context.drawImage(tempMarker.Sprite, tempMarker.XPos, tempMarker.YPos, tempMarker.Width, tempMarker.Height);
 
             // Calculate position text
-            var markerText = "Position (X:" + tempMarker.XPos + ", Y:" + tempMarker.YPos + ") ";
+
+            var markerText = "Position " + (i+1);
+            
+            
 
 
             // Draw a simple box so you can see the position
@@ -167,7 +225,9 @@ function showImg(zoomLength) {
             // Draw position above
             context.fillStyle = "#000";
             context.fillText(markerText, tempMarker.XPos, tempMarker.YPos);
+            
         }
+
     };
     if (!(imgDiv)) {
         setInterval(main, (1000 / 500)); // Refresh 60 times a second
@@ -205,7 +265,7 @@ $(window).resize(function () {
 function jsResize(zoomLength) {
 
     // header height is 69px
-    var h = window.innerHeight - 69;
+    var h = window.innerHeight - 340;
     var w = window.innerWidth;
     var panelPaddingTop = $('.panel').css("padding-top")
     var uploadArea = $('.uploadArea').css('height')
@@ -213,9 +273,6 @@ function jsResize(zoomLength) {
     var backAreaMarginBottom = $('.backArea').css("margin-bottom")
 
     $("#showImg_view").height(h)
-
-    //header height is 69px
-    $('.main_full').css('margin-top', 69)
 
     //upload image area setting
     var uploadedViewHeight = $('#uploaded_view').height()
@@ -243,11 +300,11 @@ function jsResize(zoomLength) {
     //show image setting
     var mainImg = $('#mainImg_' + zoomLength).height()
     if (mainImg > h) {
-        $("#mainImg_" + zoomLength).height(h)
+        $("#mainImg_" + zoomLength).height()
     }
 
     //normal width
-    $(".showImg_view").width(50 + '%')
+    $(".showImg_view").width(80 + '%')
     $(".click_position_tags").width(30 + '%')
     $(".panel").width(20 + '%')
 
@@ -260,4 +317,93 @@ function jsResize(zoomLength) {
         $('#showImg_view').height(h)
     }
 }
+
+var btnSaveYes = $("#buttonYes");
+btnSaveYes.on("click",function(e){
+    $("#click_position_tags_message").append("<div class='tagsFeature'>Product type: Jacket</div>").class("show");
+}
+)
+
+var btnSaveFirstAge = $("#buttonAge1");
+btnSaveFirstAge.on("click",function(e){
+    $("#click_position_tags_message").append("<div class='tagsFeature'>Age Group: 9 months - 6 yrs old</div>").class("show");
+}
+)
+
+var btnSaveFirstAge = $("#buttonAge2");
+btnSaveFirstAge.on("click",function(e){
+    $("#click_position_tags_message").append("<div class='tagsFeature'>Age Group: 7 - 14 years old</div>").class("show");
+}
+)
+
+var btnSaveFirstAge = $("#buttonAge3");
+btnSaveFirstAge.on("click",function(e){
+    $("#click_position_tags_message").append("<div class='tagsFeature'>Age Group: 14 - 22 years old</div>").class("show");
+}
+)
+
+var btnSaveFirstAge = $("#buttonAge4");
+btnSaveFirstAge.on("click",function(e){
+    $("#click_position_tags_message").append("<div class='tagsFeature'>Age Group: 22 - 34 years old</div>").class("show");
+}
+)
+
+var btnSaveFirstAge = $("#buttonAge5");
+btnSaveFirstAge.on("click",function(e){
+    $("#click_position_tags_message").append("<div class='tagsFeature'>Age Group: 34 - 48 years old</div>").class("show");
+}
+)
+
+var btnSaveWoven = $("#buttonWoven");
+btnSaveWoven.on("click",function(e){
+    $("#click_position_tags_message").append("<div class='tagsFeature'>Material: Woven</div>").class("show");
+}
+)
+
+var btnSaveKnitted = $("#buttonKnitted");
+btnSaveKnitted.on("click",function(e){
+    $("#click_position_tags_message").append("<div class='tagsFeature'>Material: Knitted</div>").class("show");
+}
+)
+
+var btnSaveZipper = $("#buttonZipper");
+btnSaveZipper.on("click",function(e){
+   $("#click_position_tags_message").append("<div class='tagsFeature'> Position " + position + ": Zipper.</div>").class("show"); 
+   
+}
+)
+
+var btnSaveButton = $("#buttonButton");
+btnSaveButton.on("click",function(e){
+    $("#click_position_tags_message").append("<div class='tagsFeature'> Position " + position + ": Button.</div>").class("show");
+}
+)
+
+var btnSaveTrims = $("#buttonTrims");
+btnSaveTrims.on("click",function(e){
+    $("#click_position_tags_message").append("<div class='tagsFeature'> Position " + position + ": Trims.</div>").class("show");
+}
+)
+
+var btnSavePrinting = $("#buttonPrinting");
+btnSavePrinting.on("click",function(e){
+    $("#click_position_tags_message").append("<div class='tagsFeature'> Position " + position + ": Printing.</div>").class("show");
+}
+)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

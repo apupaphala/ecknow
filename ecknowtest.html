@@ -6,66 +6,167 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Upload form</title>
-    <link rel="stylesheet" href="css/ecknowtest.css" />
+    <link rel="stylesheet" href="css/ecknowtest.css" >
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+    <script type="text/javascript">//get from local if not available
+        window.jQuery || document.write('<script type="text/javascript" src="/js/jquery-3.6.0.min.js">\x3C/script>');
+    </script>
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+    
+    
+  
 
 
 
 </head>
 
 <body>
-    <!-- header -->
-    <div id="header" class="header" style="position:inherit;z-index: 999;"></div>
-     <!-- header end-->
-
      <!-- content -->
     <main class="main_full">
         <div class="container containerFullHeight">
             <!-- upload panel -->
             <div class="panel">
                 <div class="button_outer backArea">
-                    <div class="btn_back">
+                    <div class="btn_back" id="backButtonForModal">
+                        
+                        <b>
                         Back
+                        </b>
                     </div>
                 </div>
 
-                <div class="button_outer uploadArea">
+
+                <div class="uploaded_file_view" id="uploaded_view">
+                </div>
+
+                <div class="button_outer uploadArea" style="margin-top:-5px">
                     <div class="btn_upload">
                         <input type="file" id="upload_file" name="" multiple>
-                        Upload
+                        <b>Upload</b>
+                    
                     </div>
                     <div class="processing_bar"></div>
                     <div class="success_box"></div>
                 </div>
-                <div class="uploaded_file_view" id="uploaded_view">
-                </div>
             </div>
             <!-- upload panel end -->
-
+            
             <!-- show image -->
-            <div class="showImg_view" id="showImg_view"></div>
+            <div class="showImg_view" id="showImg_view"><img id="backImage" src="img/back.jpg" width="650px" height="560px"></div>
             <!-- show image end -->
 
             <!-- image position tag -->
-            <div class="click_position_tags" id="click_position_tags">
-                <div class="messageArea">
-                    <div class="click_position_tags_message" id="click_position_tags_message">
-                        <p>Please point image to provide information</p>
-                        <div id="tagData" value="0"></div>
+            <div class="click_position_tags" id="click_position_tags" style="display:flex">
+                <div class="messageArea" style="display:flex">
+                    <div class="click_position_tags_message" id="click_position_tags_message" style="padding:30px; display:flex; flex-direction: column; align-text:left">
+
                     </div>
-                    <div class="button_outer nextArea">
-                        <a href="./formOne.html">
-                            <div class="btn_next">
-                                Next
-                            </div>
-                        </a>
+
+                </div>
+            </div>
+
+
+            <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                        <div class="modal-body">
+                            <h4>Is it a jacket?</h4>
+                        </div>
+                        <div class="modal-footer">
+
+                            <button id="buttonYes" type="button" class="btn btn-primary" data-dismiss="modal" data-toggle="modal" data-target="#exampleModalCenter2" data-backdrop="false">YES</button>
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal" data-toggle="modal" data-target="#exampleModalCenter2" data-backdrop="false">No</button>
+                        </div>
                     </div>
                 </div>
             </div>
-            <!-- image position tag end -->
+
+            
+            <div class="modal fade" id="exampleModalCenter2" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle2" aria-hidden="true" >
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                        <div class="modal-body">
+                            <h4>What is the age suitable for this product?</h4>
+                        </div>
+                        <div class="modal-footer">
+                                
+                            <div class="dropdown">
+                                <button style="min-width:250px" data-dismiss="modal" data-toggle="modal" data-target="#exampleModalCenter2" data-backdrop="false">Age Range</button>
+                                <div class="dropdown-content">
+                                <a class="ageButton" data-dismiss="modal" style="color:black" data-toggle="modal" data-target="#exampleModalCenter3" data-backdrop="false">3 months to 4 years</a>
+                                <a class="ageButton" data-dismiss="modal" style="color:black" data-toggle="modal" data-target="#exampleModalCenter3" data-backdrop="false">5- 11 yrs old</a>
+                                <a class="ageButton" data-dismiss="modal" style="color:black" data-toggle="modal" data-target="#exampleModalCenter3" data-backdrop="false">12-21 years old</a>
+                                <a class="ageButton" data-dismiss="modal" style="color:black" data-toggle="modal" data-target="#exampleModalCenter3" data-backdrop="false">22-35 years old</a>
+                                <a class="ageButton" data-dismiss="modal" style="color:black" data-toggle="modal" data-target="#exampleModalCenter3" data-backdrop="false">36-55 years old</a>
+                                <a class="ageButton" data-dismiss="modal" style="color:black" data-toggle="modal" data-target="#exampleModalCenter3" data-backdrop="false">over 56 years old</a>
+                                </div>
+                              </div>
+                        </div>
+                    </div>
+                </div>
+
+                
+            </div>
+
+            <div class="modal fade" id="exampleModalCenter3" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle3" aria-hidden="true" >
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                        <div class="modal-body">
+                            <h4>Is Woven or knitted fabric?</h4>
+                        </div>
+                        <div class="modal-footer">
+
+                            <button id="buttonWoven" type="button" class="btn btn-primary" data-dismiss="modal" data-toggle="modal" data-target="#exampleModalCenter4" data-backdrop="false" >Woven</button>
+                            <button id="buttonKnitted" type="button" class="btn btn-primary" data-dismiss="modal" data-toggle="modal" data-target="#exampleModalCenter4" data-backdrop="false" >Knitted</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="modal fade" id="exampleModalCenter4" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle4" aria-hidden="true" >
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                        <div class="modal-body">
+                            <h4>Please point on image to provide extra information</h4>
+                        </div>
+                        <div class="modal-footer">
+
+                            <button id="buttonFinishOK" type="button" class="btn btn-primary" data-dismiss="modal" >OK</button>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="modal fade" id="exampleModalCenter5" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle5" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                        <div class="modal-footer p-0">
+
+                            <button id="buttonZipper" type="button" class="btn btn-primary" data-dismiss="modal" >Zipper</button>
+                            <button id="buttonButton" type="button" class="btn btn-primary" data-dismiss="modal" >Button</button>
+                            <button id="buttonTrims" type="button" class="btn btn-primary" data-dismiss="modal" >Trims</button>
+                            <button id="buttonPrinting" type="button" class="btn btn-primary" data-dismiss="modal" >Printing</button>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+
 
         </div>
+
+
     </main>
 <!-- content end-->
 
@@ -75,6 +176,7 @@
               $("#header").load("./header/header.html")
     </script>
     <script src='js/ecknowtest.js'></script>
+
 </body>
 
 
